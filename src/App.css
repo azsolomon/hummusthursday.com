@@ -1,11 +1,82 @@
-.App {
+.app {
   display: flex;
-  height: 100vh;
-  text-align: center;
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.app-initial {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: auto;
+  margin-top: 10px;
+}
+
+.app-header-initial {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: auto;
+  margin: auto;
+  border: 1px solid grey;
+  justify-content: center;
+  padding: 40px;
+  box-shadow: 10px 10px rgba(136, 136, 136, 0.12);
 }
 
 .hummus-container {
-  font-size: 7em;
+  font-size: 3em;
+  width: auto;
+  justify-self: center;
+  margin: auto;
+}
+
+.location-button {
+  height: 35px;
+  font-size: 15px;
+  background: rgba(155, 155, 155, 0.1);
+  margin-right: 2px;
+  border: none;
+  border-right: 1px solid rgba(155, 155, 155, 0.5);
+}
+
+.address-container {
+  border-radius: 5px;
+  border: 1px solid rgba(155, 155, 155, 0.5);
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+}
+
+.address-input {
+  font-size: 15px;
+  width: 250px;
+  border: none;
+}
+
+.address-button {
+  background: rgba(155,155,155,.1);
+  height: 35px;
+  border: none;
+  border-left: 1px solid rgba(155, 155, 155, 0.5);
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 10px;
+  align-self: center;
+  justify-self: center;
 }

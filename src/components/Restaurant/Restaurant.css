@@ -1,0 +1,27 @@
+.restleft-container{
+  width: 49%;
+  margin-right: auto;
+  text-align: left;
+}
+
+.restright-container {
+  width: 49%;
+  margin-left: auto;
+  text-align: right;
+}
+
+.restaurant-container {
+  font-size: 20px;
+  border: 1px solid rgba(144, 144, 144, 0.50);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 15px;
+}
+
+.restaurant-row {
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+}
