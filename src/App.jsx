@@ -17,7 +17,7 @@ function App() {
   const [searchService, updateSearchService] = useState(null);
   const [results, updateResults] = useState(null);
   const [address, updateAddress] = useState('');
-  const [confetti, updateConfetti] = useState(false);
+  const [requestedResult, updateRequested] = useState(false);
 
   const handleScriptLoad = () => {
     const center = new google.maps.LatLng(0, 0);
@@ -40,7 +40,7 @@ function App() {
   };
 
   const handleSearch = () => {
-    updateConfetti(true);
+    updateRequested(true);
     navigator.geolocation.getCurrentPosition(
       position => findHummus(position.coords.latitude, position.coords.longitude),
       err => console.warn(err),
@@ -48,7 +48,7 @@ function App() {
   };
 
   const handleAddress = () => {
-    updateConfetti(true);
+    updateRequested(true);
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address }, result => findHummus(
       result[0].geometry.location.lat(),
@@ -57,14 +57,14 @@ function App() {
   };
 
   return (
-    <div className={confetti ? 'app' : 'app-initial'}>
+    <div className={requestedResult ? 'app' : 'app-initial'}>
       <div id="map" />
-      <div className={confetti ? 'app-header' : 'app-header-initial'}>
+      <div className={requestedResult ? 'app-header' : 'app-header-initial'}>
         <Script
           url={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places`}
           onLoad={handleScriptLoad}
         />
-        {confetti && (
+        {results && (
           <Confetti
             width={width}
             height={2 * height}
@@ -89,6 +89,7 @@ function App() {
               type="text"
               placeholder="Enter an Address"
               value={address}
+              onKeyDown={(event) => { if (event.key === 'Enter') handleAddress(); }}
               onChange={e => updateAddress(e.target.value)}
             />
             <button
@@ -101,7 +102,7 @@ function App() {
           </div>
         </div>
       </div>
-      {(confetti && !results) && <ListLoader />}
+      {(requestedResult && !results) && <ListLoader />}
       {results && (
       <div className="hummus-container">
         {results.map(result => Restaurant(result))}
