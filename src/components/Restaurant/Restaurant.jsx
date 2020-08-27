@@ -28,7 +28,12 @@ const Restaurant = result => (
         Reviews
       </div>
       <div className="restright-container">
-        {result.opening_hours && result.opening_hours.open_now ? 'open now' : 'closed'}
+        <a
+          style={{ color: 'black' }}
+          href={`https://www.google.com/maps/place/?q=place_id:${result.place_id}`}
+        >
+          View in Maps
+        </a>
       </div>
     </div>
   </div>
