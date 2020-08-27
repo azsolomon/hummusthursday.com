@@ -51,8 +51,8 @@ function App() {
     updateConfetti(true);
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address }, result => findHummus(
-      result[0].geometry.viewport.na.j,
-      result[0].geometry.viewport.ga.j,
+      result[0].geometry.location.lat(),
+      result[0].geometry.location.lng(),
     ));
   };
 
